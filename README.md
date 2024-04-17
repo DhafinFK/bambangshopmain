@@ -76,14 +76,21 @@ This is the place for you to write reflections:
 
 ### Mandatory (Publisher) Reflections
 
+#### Reflection Publisher-1
+
 1. Dalam desain Observer, kebutuhan akan antarmuka atau trait ditentukan oleh kompleksitas dari sistem observer yang digunakan. Ketika observer mencakup berbagai jenis dan kelas, penggunaan trait menjadi esensial untuk memudahkan implementasi. Akan tetapi, untuk kasus BambangShop yang hanya memiliki satu kelas observer yaitu Subscriber, penggunaan trait tidak diperlukan. Sebaliknya, struktur model tunggal sudah memadai untuk mengelola pengamatan terhadap perubahan yang terjadi. Oleh karena itu, untuk BambangShop, cukup menggunakan satu Model struct tanpa perlu menambahkan antarmuka yang lain.
 
 2. Penggunaan DashMap diperlukan untuk meningkatkan efisiensi dalam memetakan hubungan antara produk dan subscriber. Penggunaan Vec akan mengharuskan pembuatan dua Vec terpisah untuk tiap produk, yang dapat menyulitkan dalam pengelolaan data. Sebaliknya, DashMap menyediakan cara yang lebih mudah untuk mengakses dan memelihara data melalui pemetaan langsung antara produk dan subscriber.
 
 3. Dalam bahasa pemrograman Rust, kepatuhan ketat terhadap aturan kompiler menjamin keselamatan thread dalam program. Untuk variabel statis Daftar Pelanggan (SUBSCRIBERS), penggunaan DashMap dimaksudkan untuk memastikan bahwa penggunaan HashMap aman dari masalah yang berkaitan dengan thread. Perlu dipertimbangkan apakah penggunaan DashMap masih relevan atau jika pola Singleton bisa menjadi alternatif yang layak.
 
-#### Reflection Publisher-1
-
 #### Reflection Publisher-2
+
+1. Dalam kerangka MVC, dimana Model berperan dalam menyimpan data serta mengatur logika bisnis, penting untuk memisahkan "Servi
+ce" dan "Repository" agar sesuai dengan prinsip single responsibility. Pemisahan ini mengisolasi fungsi yang berbeda, di mana "Service" bertanggung jawab atas logika aplikasi dan "Repository" fokus pada pengelolaan akses data. Struktur ini meningkatkan modularitas dan memudahkan dalam pengembangan serta perawatan kode.
+
+2. Mengandalkan hanya pada Model tanpa struktur tambahan lainnya akan menghasilkan tingkat ketergantungan yang tinggi dalam program. Hal ini berarti setiap kali terjadi perubahan, banyak penyesuaian yang harus dilakukan pada kode. Menggunakan hanya Model tanpa lapisan tambahan mempersulit pemeliharaan kode karena hubungan erat antar komponen, di mana perubahan pada satu bagian sering kali berdampak pada bagian lain.
+
+3. Saya telah memperluas pengetahuan saya tentang Postman, sebuah alat yang sangat berguna untuk menguji aplikasi yang saya kembangkan. Dengan Postman, saya bisa memastikan bahwa respon aplikasi sesuai dengan ekspektasi berdasarkan permintaan yang diberikan. Saya juga dapat menyesuaikan operasi yang diperlukan, seperti operasi CRUD, untuk memastikan kebenaran data. Beberapa fitur Postman yang saya temukan sangat berguna termasuk kemampuan untuk mengelola dan menyimpan kumpulan permintaan HTTP, mengotomatisasi pengujian dengan skrip, serta menyediakan lingkungan terisolasi untuk melakukan pengujian integrasi dengan API eksternal. Saya sangat menghargai fitur pengujian otomatis yang memungkinkan saya menjalankan serangkaian tes secara teratur untuk memastikan konsistensi dan kualitas aplikasi.
 
 #### Reflection Publisher-3
