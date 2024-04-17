@@ -76,6 +76,12 @@ This is the place for you to write reflections:
 
 ### Mandatory (Publisher) Reflections
 
+1. Dalam desain Observer, kebutuhan akan antarmuka atau trait ditentukan oleh kompleksitas dari sistem observer yang digunakan. Ketika observer mencakup berbagai jenis dan kelas, penggunaan trait menjadi esensial untuk memudahkan implementasi. Akan tetapi, untuk kasus BambangShop yang hanya memiliki satu kelas observer yaitu Subscriber, penggunaan trait tidak diperlukan. Sebaliknya, struktur model tunggal sudah memadai untuk mengelola pengamatan terhadap perubahan yang terjadi. Oleh karena itu, untuk BambangShop, cukup menggunakan satu Model struct tanpa perlu menambahkan antarmuka yang lain.
+
+2. Penggunaan DashMap diperlukan untuk meningkatkan efisiensi dalam memetakan hubungan antara produk dan subscriber. Penggunaan Vec akan mengharuskan pembuatan dua Vec terpisah untuk tiap produk, yang dapat menyulitkan dalam pengelolaan data. Sebaliknya, DashMap menyediakan cara yang lebih mudah untuk mengakses dan memelihara data melalui pemetaan langsung antara produk dan subscriber.
+
+3. Dalam bahasa pemrograman Rust, kepatuhan ketat terhadap aturan kompiler menjamin keselamatan thread dalam program. Untuk variabel statis Daftar Pelanggan (SUBSCRIBERS), penggunaan DashMap dimaksudkan untuk memastikan bahwa penggunaan HashMap aman dari masalah yang berkaitan dengan thread. Perlu dipertimbangkan apakah penggunaan DashMap masih relevan atau jika pola Singleton bisa menjadi alternatif yang layak.
+
 #### Reflection Publisher-1
 
 #### Reflection Publisher-2
